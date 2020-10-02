@@ -1,0 +1,22 @@
+#Database
+Player Table
+  *playername unique
+  *cumulative points / games won
+  *current game points
+
+#Main functions
+*create new player
+*update current score by 1
+          #save current score to database if game paused
+          #reset current score when game ends
+*update total games won when game ends:
+          #Conditions for game ending
+            * player score > 10 and player score> (other player score+2)
+*retrieve player data
+*sort players according to games won
+
+#Frontend
+*one dashboard
+    *set player1 and 2
+    *score update buttons for both players
+    *list of players sorted according to gmae won

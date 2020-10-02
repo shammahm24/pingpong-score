@@ -1,0 +1,41 @@
+<html>
+<body>
+  <form method="post" action="\player1_join">
+    <label>Enter Player 1 Name</label>
+    <input type="text"  id="pname" name="p1name">
+    <input type="submit">
+    </form>
+
+    <form method="post" action="\player2_join">
+      <label>Enter Player 2 Name</label>
+      <input type="text"  id="pname" name="p2name">
+      <input type="submit">
+      </form>
+
+    <h1>Player 1: {{player1}}</h1>
+    <h1>Score: {{score1}}</h1>
+    <form method="post" action="\update_score">
+      <label>Update Score</label>
+      <input type="hidden"  id="pname" name="pname" value="p1">
+      <input type="submit">
+      </form>
+
+    <h1>Player 2: {{player2}}</h1>
+    <h1>Score: {{score2}}</h1>
+    <form method="post" action="\update_score">
+      <label>Update Score</label>
+      <input type="hidden"  id="pname" name="pname" value="p2">
+      <input type="submit">
+      </form>
+
+      <form method="post" action="\add_player">
+        <label>Enter New Player Name</label>
+        <input type="text"  id="pname" name="pname">
+        <input type="submit">
+        </form>
+
+  <h1>Name,Games<h1/>
+  {%for player in players%}
+  <span>{{player[0]}},{{player[1]}}</span><br>
+  {%endfor%}
+<body>
