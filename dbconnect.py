@@ -1,10 +1,13 @@
 import os
 import psycopg2
 from contextlib import closing
+from dotenv import load_dotenv
+load_dotenv()
 #connect to local postgresql database
+PASSWORD = os.environ['PASSWORD'];
+USERNAME = os.environ['USERNAME'];
+
 try:
-    PASSWORD = os.environ['PASSWORD']
-    USERNAME = os.environ['USERNAME']
     conn=psycopg2.connect(database="mydb",user=USERNAME,password=PASSWORD,host="localhost",port="5432")
 except:
     print("Failed to connect to database")
@@ -20,7 +23,6 @@ ptable_query="""CREATE TABLE IF NOT EXISTS Players(
 
 with closing(conn.cursor())as c:
     c.execute(ptable_query)
-    c.execute(current_players)
     conn.commit()
 
 

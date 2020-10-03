@@ -21,6 +21,16 @@ def update_score():
     global score1
     global score2
 
+            #end game logic
+    def check_winner():
+        if score1>10 and score1>(score2+2) or score2>10 and score2>(score1+2):
+            if score1>score2:
+                db.update_games(player1)
+            else:
+                db.update_games(player2)
+            db.reset_score(player1)
+            db.reset_score(player2)
+
     if request.method=='POST':
         pname=request.form['pname']
         if pname=="p1":
@@ -34,15 +44,7 @@ def update_score():
 
     return redirect(url_for('get_index'))
 
-        #end game logic
-    def check_winner():
-        if score1>10 and score1>(score2+2) or score2>10 and score2>(score1+2):
-            if score1>score2:
-                db.update_games(player1)
-            else:
-                db.update_games(player2)
-            db.reset_score(player1)
-            db.reset_score(player2)
+
 
 
 
